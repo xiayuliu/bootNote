@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.xia.dao.UsersDAO">
+
+
+    <select id="loginVerify" parameterType="UserInfo" resultType="UserInfo">
+        SELECT userPwd, salt FROM userinfo WHERE userName = #{userName}
+    </select>
+
+
+    <insert id="storage" parameterType="UserInfo">
+        insert into userinfo values(null,#{userName},#{userPwd},#{salt})
+    </insert>
+</mapper>
